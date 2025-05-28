@@ -4,72 +4,30 @@ interface Teacher {
   fullTimeEmployee: boolean;
   yearsOfExperience?: number;
   location: string;
-  /* eslint-disable @typescript-eslint/no-explicit-any */
-  [propName: string]: any;
-  /* eslint-enable @typescript-eslint/no-explicit-any */
+  [propName: string]: any; // Dynamic properties
 }
 
-// const teacher3: Teacher = {
-//   firstName: "John",
-//   fullTimeEmployee: false,
-//   lastName: "Doe",
-//   location: "London",
-//   contract: false,
-// };
-
-// console.log(teacher3);
-
-interface Directors extends Teacher {
-  numberOfReports: number;
-}
-
-// const director1: Directors = {
-//   firstName: "John",
-//   lastName: "Doe",
-//   location: "London",
-//   fullTimeEmployee: true,
-//   numberOfReports: 17,
-// };
-// console.log(director1);
-
-/* eslint-disable @typescript-eslint/class-name-casing */
-interface printTeacherFunction {
-  (firstName: string, lastName: string): string;
-}
-
-/* eslint-enable @typescript-eslint/class-name-casing */
-export const printTeacher: printTeacherFunction = function (
-  firstName: string,
-  lastName: string
-): string {
-  return `${firstName.charAt(0)}. ${lastName}`;
+const teacher3: Teacher = {
+  firstName: "John",
+  lastName: "Doe",
+  fullTimeEmployee: false,
+  location: "London",
+  contract: false,  // Dynamic property
 };
 
-// console.log(printTeacher("John", "Doe"));
+// Rendering the teacher3 object to the browser
+const body: HTMLBodyElement = document.getElementsByTagName("body")[0];
 
-interface StudentConstructor {
-  new (firstName: string, lastName: string): StudentClassInterface;
-}
+// Create a div to hold the teacher info
+const teacherDiv = document.createElement('div');
+teacherDiv.innerHTML = `
+  <h2>Teacher Info:</h2>
+  <p><strong>First Name:</strong> ${teacher3.firstName}</p>
+  <p><strong>Last Name:</strong> ${teacher3.lastName}</p>
+  <p><strong>Full-Time Employee:</strong> ${teacher3.fullTimeEmployee}</p>
+  <p><strong>Location:</strong> ${teacher3.location}</p>
+  <p><strong>Contract:</strong> ${teacher3.contract}</p>
+`;
 
-interface StudentClassInterface {
-  workOnHomework(): string;
-  displayName(): string;
-}
-
-export class StudentClass implements StudentClassInterface {
-  firstName: string;
-  lastName: string;
-
-  constructor(firstName: string, lastName: string) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-  }
-
-  workOnHomework(): string {
-    return "Currently working";
-  }
-
-  displayName(): string {
-    return this.firstName;
-  }
-}
+// Append the div to the body of the webpage
+body.appendChild(teacherDiv);
