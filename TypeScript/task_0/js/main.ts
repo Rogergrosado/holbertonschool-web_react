@@ -37,7 +37,7 @@ cell2Head.innerHTML = "location";
 table.append(thead);
 
 studentsList.forEach((student) => {
-  const row: HTMLTableRowElement = tbody.insertRow(0);
+  const row: HTMLTableRowElement = tbody.insertRow(tbody.rows.length); // Change to append the row
   const cell1: HTMLTableCellElement = row.insertCell(0);
   const cell2: HTMLTableCellElement = row.insertCell(1);
 
