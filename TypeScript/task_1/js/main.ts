@@ -11,7 +11,7 @@ interface Directors extends Teacher {
   numberOfReports: number; // Add numberOfReports property
 }
 
-// Example of creating a teacher object
+// Define the teacher3 object
 const teacher3: Teacher = {
   firstName: "John",
   lastName: "Doe",
@@ -20,7 +20,7 @@ const teacher3: Teacher = {
   contract: false,  // Dynamic property
 };
 
-// Example of creating a director object
+// Define the director1 object
 const director1: Directors = {
   firstName: "John",
   lastName: "Doe",
