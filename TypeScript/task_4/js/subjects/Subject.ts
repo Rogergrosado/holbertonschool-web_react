@@ -1,9 +1,13 @@
-namespace Subjects {
-  export class Subject {
-    teacher: Teacher;
+import { Teacher } from "./Teacher"; // Import Teacher interface
 
-    set setTeacher(teacher: Teacher) {
-      this.teacher = teacher;
-    }
+export class Subject {
+  teacher: Teacher;
+
+  constructor(teacher: Teacher) {
+    this.teacher = teacher; // Initialize teacher
+  }
+
+  set setTeacher(teacher: Teacher) {
+    this.teacher = teacher;
   }
 }
